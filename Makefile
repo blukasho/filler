@@ -6,19 +6,17 @@
 #*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2019/07/13 12:43:18 by blukasho          #+#    #+#             *#
-#*   Updated: 2019/07/14 19:07:47 by blukasho         ###   ########.fr       *#
+#*   Updated: 2019/07/15 13:03:40 by blukasho         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = main.c read.c
+SRCS = main.c read.c clear.c
 
 SRCS_DIR = srcs/
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 OBJ_DIR = obj/
-
-STRIP = strip
 
 LIBFT_PATH = libft/
 
@@ -38,7 +36,6 @@ all: make_objs_dir make_lib $(NAME)
 
 $(NAME): $(LIB_NAME) $(NAME_MAIN)
 	gcc $(FLAGS) $(NAME_MAIN) $(LIB_NAME) -o $(NAME)
-	$(STRIP) $(NAME)
 
 $(LIB_NAME): $(OBJ)
 	ar -rv $(LIB_NAME) $^

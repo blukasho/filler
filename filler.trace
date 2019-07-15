@@ -1,6 +1,5 @@
-seed = 2122
-X: timedout
-O: error on input
-./resources/players/hcao.filler won
+seed = 4272
+O: timedout
+resources/players/iruban.filler won
 Score:
-12AGAINST0
+0AGAINST164

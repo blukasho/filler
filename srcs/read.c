@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/14 11:05:28 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/15 13:07:15 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,34 @@ char		 **filler_realloc(char **arr, char *str)
 	return (arr);
 }
 
-char		**filler_read(void)
+int			filler_get_player(t_filler *filler, char *buf)
+{
+	if (!ft_strstr(buf, "$$$ exec "))
+		return (0);
+	if (ft_strstr(buf, "p1") && (filler->player = 'O'))
+		return (1);
+	if (ft_strstr(buf, "p2") && (filler->player = 'X'))
+		return (1);
+	return (0);
+}
+
+char		**filler_read(t_filler *filler)
 {
 	char	*buf;
+	//
 	int		fd;
 
 	fd = open("./out", O_RDWR);
 	if (fd == -1)
 		ft_putendl_fd("ERROR", 2);
+	//
 	get_next_line(0, &buf);
-	ft_putendl_fd(buf, fd);
+	if (!buf || !filler_get_player(filler, buf))
+		return ((char **)ft_strdel(&buf));
+	ft_putendl_fd(buf, fd);//
+	ft_strdel(&buf);
+	get_next_line(0, &buf);//
+	ft_putendl_fd(buf, fd);//
+	ft_strdel(&buf);
 	return (NULL);
 }
