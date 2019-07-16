@@ -13,6 +13,7 @@ nnoremap tl :tabn
 nnoremap tt :tabp
 nnoremap wq :wa:mksession! mysession.vim:qa
 nnoremap ws :wa:mksession! mysession.vim:sh
+nnoremap ww :wa
 nnoremap yy :tabn
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
@@ -56,13 +57,13 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 srcs/main.c
-badd +67 srcs/read.c
+badd +62 srcs/read.c
 badd +1 includes/filler.h
 badd +1 Makefile
 badd +1 libft/includes/libft.h
-badd +24 srcs/clear.c
+badd +17 srcs/clear.c
 badd +1 libft/srcs/ft_isdigit.c
-badd +0 srcs/map.c
+badd +1 srcs/map.c
 argglobal
 silent! argdel *
 argadd srcs/main.c
@@ -183,12 +184,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 20 - ((18 * winheight(0) + 24) / 48)
+let s:l = 26 - ((24 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
-normal! 016|
+26
+normal! 0
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -305,12 +306,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 55 - ((30 * winheight(0) + 24) / 48)
+let s:l = 56 - ((31 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-55
-normal! 05|
+56
+normal! 08|
 tabedit srcs/map.c
 set splitbelow splitright
 set nosplitbelow
@@ -427,12 +428,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 52 - ((43 * winheight(0) + 24) / 48)
+let s:l = 50 - ((30 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-52
-normal! 027|
+50
+normal! 09|
 tabedit srcs/clear.c
 set splitbelow splitright
 set nosplitbelow
@@ -550,11 +551,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((22 * winheight(0) + 24) / 48)
+let s:l = 19 - ((17 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
+19
 normal! 0
 tabedit includes/filler.h
 set splitbelow splitright
@@ -672,12 +673,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 35 - ((33 * winheight(0) + 24) / 48)
+let s:l = 23 - ((21 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-35
-normal! 045|
+23
+normal! 022|
 tabedit Makefile
 set splitbelow splitright
 set nosplitbelow
