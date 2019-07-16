@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/15 13:07:15 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/16 12:38:19 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,13 @@ int			filler_get_player(t_filler *filler, char *buf)
 char		**filler_read(t_filler *filler)
 {
 	char	*buf;
-	//
-	int		fd;
 
-	fd = open("./out", O_RDWR);
-	if (fd == -1)
-		ft_putendl_fd("ERROR", 2);
-	//
-	get_next_line(0, &buf);
-	if (!buf || !filler_get_player(filler, buf))
+	get_next_line(STDIN_FILENO, &buf);
+	if (!buf || !filler_get_player(filler, buf) || !filler_get_map_param(filler))
 		return ((char **)ft_strdel(&buf));
-	ft_putendl_fd(buf, fd);//
-	ft_strdel(&buf);
-	get_next_line(0, &buf);//
-	ft_putendl_fd(buf, fd);//
-	ft_strdel(&buf);
+	if (buf)
+		ft_strdel(&buf);
+	if (!filler_get_map(filler))
+		return (0);
 	return (NULL);
 }

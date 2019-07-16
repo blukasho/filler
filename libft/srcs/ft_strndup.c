@@ -6,7 +6,7 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:49:32 by blukasho          #+#    #+#             */
-/*   Updated: 2019/01/12 14:37:01 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/16 08:48:09 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strndup(const char *s1, size_t n)
 	size_t	i;
 
 	i = 0;
-	res = ft_strnew(n);
+	res = ft_strnew(n + 1);
 	if (res)
 		while (i < n)
 		{
