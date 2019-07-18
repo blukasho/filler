@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/18 15:49:26 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/18 16:11:56 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,19 @@ int			filler_get_player(t_filler *filler, char *buf)
 	return (0);
 }
 
-char		**filler_read(t_filler *filler)
+int			filler_read(t_filler *filler)
 {
 	char	*buf;
 
 	get_next_line(STDIN_FILENO, &buf);
-	if (!buf || !filler_get_player(filler, buf) || !filler_get_map_param(filler))
-		return ((char **)ft_strdel(&buf));
+	if ((!buf || !filler_get_player(filler, buf) ||
+		!filler_get_map_param(filler)) && !ft_strdel(&buf))
+		return (0);
 	if (buf)
 		ft_strdel(&buf);
 	if (!filler_get_map(filler))
-		return (NULL);
+		return (0);
 	if (!filler_get_piece_param(filler) || !filler_get_piece(filler))
-		return (NULL);
-	return (NULL);
+		return (0);
+	return (1);
 }

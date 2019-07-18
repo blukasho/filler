@@ -61,10 +61,10 @@ badd +62 srcs/read.c
 badd +16 includes/filler.h
 badd +1 Makefile
 badd +17 libft/includes/libft.h
-badd +13 srcs/clear.c
+badd +5 srcs/clear.c
 badd +1 libft/srcs/ft_isdigit.c
 badd +1 srcs/map.c
-badd +0 srcs/piece.c
+badd +1 srcs/piece.c
 argglobal
 silent! argdel *
 argadd srcs/main.c
@@ -185,11 +185,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 26 - ((24 * winheight(0) + 24) / 48)
+let s:l = 24 - ((22 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
+24
 normal! 0
 tabedit srcs/read.c
 set splitbelow splitright
@@ -307,12 +307,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 60 - ((43 * winheight(0) + 24) / 48)
+let s:l = 4 - ((3 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-60
-normal! 022|
+4
+normal! 08|
 tabedit srcs/piece.c
 set splitbelow splitright
 set nosplitbelow
@@ -429,12 +429,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 21 - ((19 * winheight(0) + 24) / 48)
+let s:l = 43 - ((41 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 08|
+43
+normal! 0
 tabedit srcs/map.c
 set splitbelow splitright
 set nosplitbelow
@@ -551,11 +551,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 19 - ((12 * winheight(0) + 24) / 48)
+let s:l = 12 - ((11 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
+12
 normal! 0
 tabedit srcs/clear.c
 set splitbelow splitright
@@ -796,12 +796,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((16 * winheight(0) + 24) / 48)
+let s:l = 28 - ((20 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 022|
+28
+normal! 012|
 tabedit Makefile
 set splitbelow splitright
 set nosplitbelow
@@ -924,7 +924,7 @@ exe s:l
 normal! zt
 13
 normal! 042|
-tabnext 3
+tabnext 4
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
