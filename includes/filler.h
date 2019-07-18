@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/16 12:20:40 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/18 15:49:26 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct	s_filler
 	int			map_x;
 	int			map_y;
 	char		**piece;
+	int			piece_x;
+	int			piece_y;
 }				t_filler;
 
 int			filler_clear(t_filler *filler);
@@ -33,5 +35,7 @@ char		**filler_realloc(char **arr, char *str);
 int			filler_get_player(t_filler *filler, char *buf);
 int			filler_get_map_param(t_filler *filler);
 int			filler_get_map(t_filler *filler);
+int			filler_get_piece_param(t_filler *filler);
+int			filler_get_piece(t_filler *filler);
 
 #endif
