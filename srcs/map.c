@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 12:12:59 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/16 16:52:43 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/17 09:01:47 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			filler_get_map(t_filler *filler)
 		ft_putendl_fd("ERROR", 2);
 
 	buf = NULL;
-	if (get_next_line(0, &buf) < 1)
+	if (get_next_line(STDIN_FILENO, &buf) < 1)
 		return (0);
 	ft_strdel(&buf);
 	map_y = 0;
