@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/19 11:40:53 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/19 13:18:56 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,30 @@ char		 **filler_realloc(char **arr, char *str)
 	return (arr);
 }
 
-int			filler_get_player(t_filler *filler)
+int			filler_get_players(t_filler *filler)
 {
 	char	*buf;
 
 	if (get_next_line(STDIN_FILENO, &buf) < 1)
 		return (0);
-	if (!ft_strstr(buf, "$$$ exec "))
+	if (!ft_strstr(buf, "$$$ exec ") && !ft_strdel(&buf))
 		return (0);
-	if (ft_strstr(buf, "p1") && (filler->player = 'O') && !ft_strdel(&buf))
+	if (ft_strstr(buf, "p1") && !ft_strdel(&buf))
+	{
+		filler->player_s1 = 'O';
+		filler->player_s2 = 'o';
+		filler->hostile_s1 = 'X';
+		filler->hostile_s2 = 'x';
 		return (1);
-	if (ft_strstr(buf, "p2") && (filler->player = 'X') && !ft_strdel(&buf))
+	}
+	if (ft_strstr(buf, "p2") && !ft_strdel(&buf))
+	{
+		filler->player_s1 = 'X';
+		filler->player_s2 = 'x';
+		filler->hostile_s1 = 'O';
+		filler->hostile_s2 = 'o';
 		return (1);
+	}
 	ft_strdel(&buf);
 	return (0);
 }

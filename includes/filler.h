@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/19 11:41:39 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/19 13:23:43 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@
 # include <ft_printf.h>
 # include <fcntl.h>
 
+# define FILL_SYMBOL '.'
+# define PIECE_SYMBOL '*'
+
 typedef struct	s_filler
 {
-	char		player;
+	char		player_s1;
+	char		player_s2;
+	char		hostile_s1;
+	char		hostile_s2;
 
 	char		**map;
 	int			map_x;
@@ -37,7 +43,7 @@ t_filler	*filler_init(void);
 int			filler_read(t_filler *filler);
 char		**filler_realloc(char **arr, char *str);
 char		*filler_get_correct_line(char *line);
-int			filler_get_player(t_filler *filler);
+int			filler_get_players(t_filler *filler);
 int			filler_get_map_param(t_filler *filler);
 int			filler_get_map(t_filler *filler);
 int			filler_get_piece_param(t_filler *filler);
