@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/18 16:07:31 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/18 16:27:09 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int			filler_clear(t_filler *filler);
 t_filler	*filler_init(void);
 int			filler_read(t_filler *filler);
 char		**filler_realloc(char **arr, char *str);
+char		*filler_get_correct_line(char *line);
 int			filler_get_player(t_filler *filler, char *buf);
 int			filler_get_map_param(t_filler *filler);
 int			filler_get_map(t_filler *filler);

@@ -61,7 +61,7 @@ badd +62 srcs/read.c
 badd +16 includes/filler.h
 badd +1 Makefile
 badd +17 libft/includes/libft.h
-badd +5 srcs/clear.c
+badd +17 srcs/clear.c
 badd +1 libft/srcs/ft_isdigit.c
 badd +1 srcs/map.c
 badd +1 srcs/piece.c
@@ -185,12 +185,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((22 * winheight(0) + 24) / 48)
+let s:l = 37 - ((35 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 0
+37
+normal! 05|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -307,11 +307,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 24) / 48)
+let s:l = 2 - ((1 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
+2
 normal! 08|
 tabedit srcs/piece.c
 set splitbelow splitright
@@ -551,12 +551,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 24) / 48)
+let s:l = 57 - ((45 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 0
+57
+normal! 030|
 tabedit srcs/clear.c
 set splitbelow splitright
 set nosplitbelow
@@ -674,11 +674,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 24) / 48)
+let s:l = 17 - ((16 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
+17
 normal! 05|
 tabedit includes/filler.h
 set splitbelow splitright
@@ -796,12 +796,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 28 - ((20 * winheight(0) + 24) / 48)
+let s:l = 32 - ((24 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-28
-normal! 012|
+32
+normal! 031|
 tabedit Makefile
 set splitbelow splitright
 set nosplitbelow
@@ -924,7 +924,7 @@ exe s:l
 normal! zt
 13
 normal! 042|
-tabnext 4
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

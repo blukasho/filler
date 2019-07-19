@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/02 12:33:52 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/14 07:37:25 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/18 16:36:06 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 int		ft_putstr_arr(char **arr)
 {
 	while (*arr)
-		ft_printf("->%s\n", *(arr++));
+		ft_printf("%s\n", *(arr++));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 12:12:59 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/18 14:46:09 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/18 16:27:09 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ int			filler_get_map_param(t_filler *filler)
 	return (1);
 }
 
+char		*filler_get_correct_line(char *line)
+{
+	ft_memmove(line, ft_strstr(line, " ") + 1, ft_strlen(ft_strstr(line, " ")));
+	return (line);
+}
+
 int			filler_get_map(t_filler *filler)
 {
 	int		map_y;
 	char	*buf;
-	//
-	int		fd;
-
-	fd = open("./out", O_RDWR);
-	if (fd == -1)
-		ft_putendl_fd("ERROR", 2);
 
 	buf = NULL;
 	if (get_next_line(STDIN_FILENO, &buf) < 1)
@@ -53,14 +53,7 @@ int			filler_get_map(t_filler *filler)
 	ft_strdel(&buf);
 	map_y = 0;
 	while (map_y < (filler->map_y) && get_next_line(STDIN_FILENO, &buf) > 0)
-	{
-		filler->map[map_y++] = buf;
-		ft_putendl_fd(buf, fd);//
-	}
+		filler->map[map_y++] = filler_get_correct_line(buf);
 	filler->map[map_y] = NULL;
-//	get_next_line(0, &buf);
-//	ft_putendl_fd(buf, fd);//
-//	ft_strdel(&buf);
-//	close(fd);
 	return (1);
 }
