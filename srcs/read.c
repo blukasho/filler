@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/18 16:11:56 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/19 11:40:53 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,26 @@ char		 **filler_realloc(char **arr, char *str)
 	return (arr);
 }
 
-int			filler_get_player(t_filler *filler, char *buf)
+int			filler_get_player(t_filler *filler)
 {
+	char	*buf;
+
+	if (get_next_line(STDIN_FILENO, &buf) < 1)
+		return (0);
 	if (!ft_strstr(buf, "$$$ exec "))
 		return (0);
-	if (ft_strstr(buf, "p1") && (filler->player = 'O'))
+	if (ft_strstr(buf, "p1") && (filler->player = 'O') && !ft_strdel(&buf))
 		return (1);
-	if (ft_strstr(buf, "p2") && (filler->player = 'X'))
+	if (ft_strstr(buf, "p2") && (filler->player = 'X') && !ft_strdel(&buf))
 		return (1);
+	ft_strdel(&buf);
 	return (0);
 }
 
 int			filler_read(t_filler *filler)
 {
-	char	*buf;
-
-	get_next_line(STDIN_FILENO, &buf);
-	if ((!buf || !filler_get_player(filler, buf) ||
-		!filler_get_map_param(filler)) && !ft_strdel(&buf))
+	if (!filler_get_map_param(filler))
 		return (0);
-	if (buf)
-		ft_strdel(&buf);
 	if (!filler_get_map(filler))
 		return (0);
 	if (!filler_get_piece_param(filler) || !filler_get_piece(filler))

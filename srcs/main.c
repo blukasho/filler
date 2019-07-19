@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:48:53 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/18 16:36:52 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/19 12:22:23 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ int				main(void)
 
 	if (!(filler = filler_init()))
 		return (0);
-	if (!filler_read(filler) && !filler_clear(filler))
+	if (!filler_get_player(filler) && !filler_clear(filler))
 		return (0);
-	ft_printf("<------------------------>\n");
-	ft_putstr_arr(filler->map);
-	ft_printf("<------------------------>\n");
-	ft_putstr_arr(filler->piece);
+//	if (!filler_read(filler) && !filler_clear(filler))
+//		return (0);
+	filler_game(filler);
+//	ft_printf("<------------------------>\n");
+//	ft_putstr_arr(filler->map);
+//	ft_printf("<------------------------>\n");
+//	ft_putstr_arr(filler->piece);
 	filler_clear(filler);
 	return (0);
 }
