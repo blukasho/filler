@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 12:12:59 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/18 16:27:09 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/23 14:21:46 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int			filler_get_map_param(t_filler *filler)
 	char	*buf;
 	char	*tmp;
 
-	if (get_next_line(STDIN_FILENO, &buf) < 1)
+	buf = NULL;
+	get_next_line(STDIN_FILENO, &buf);//test parameter
+	if ((get_next_line(STDIN_FILENO, &buf) < 1))
 		return (0);
 	if (!ft_strstr(buf, "Plateau ") && !ft_strdel(&buf))
 		return (0);
