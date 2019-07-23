@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/19 13:23:43 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/23 11:24:23 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct	s_filler
 	int			piece_x;
 	int			piece_y;
 
+	int			result_x;
+	int			result_y;
+
 }				t_filler;
 
 int			filler_clear(t_filler *filler);
@@ -48,6 +51,9 @@ int			filler_get_map_param(t_filler *filler);
 int			filler_get_map(t_filler *filler);
 int			filler_get_piece_param(t_filler *filler);
 int			filler_get_piece(t_filler *filler);
+int			filler_get_result(t_filler *filler);
 int			filler_game(t_filler *filler);
+int			filler_is_player(t_filler *filler, int x, int y);
+int			filler_try_set_piece(t_filler *filler, int x, int y);
 
 #endif
