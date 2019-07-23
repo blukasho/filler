@@ -6,13 +6,13 @@
 /*   By: blukasho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 18:40:24 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/23 13:49:30 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/23 14:39:13 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define GNL_BUFF_SIZE 1
+# define GNL_BUFF_SIZE 4
 
 # include <unistd.h>
 # include <stdlib.h>

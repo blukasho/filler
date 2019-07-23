@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 12:12:59 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/23 14:21:46 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:29:29 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int			filler_get_map_param(t_filler *filler)
 	char	*buf;
 	char	*tmp;
 
-	buf = NULL;
-	get_next_line(STDIN_FILENO, &buf);//test parameter
-	if ((get_next_line(STDIN_FILENO, &buf) < 1))
+	if (!(buf = filler_get_line()))
 		return (0);
 	if (!ft_strstr(buf, "Plateau ") && !ft_strdel(&buf))
 		return (0);
@@ -49,12 +47,11 @@ int			filler_get_map(t_filler *filler)
 	int		map_y;
 	char	*buf;
 
-	buf = NULL;
-	if (get_next_line(STDIN_FILENO, &buf) < 1)
+	if (!(buf = filler_get_line()))
 		return (0);
 	ft_strdel(&buf);
 	map_y = 0;
-	while (map_y < (filler->map_y) && get_next_line(STDIN_FILENO, &buf) > 0)
+	while (map_y < (filler->map_y) && (buf = filler_get_line()))
 		filler->map[map_y++] = filler_get_correct_line(buf);
 	filler->map[map_y] = NULL;
 	return (1);

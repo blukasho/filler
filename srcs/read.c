@@ -6,11 +6,38 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/23 13:22:09 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:32:06 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
+
+char		*filler_get_line(void)
+{
+	char	*line;
+	char	*tmp;
+	char	*buf;
+	int		ret;
+
+	tmp = NULL;
+	buf = ft_strnew(1);
+	line = ft_strnew(0);
+	while ((ret = read(STDIN_FILENO, buf, 1)) && *buf != '\n')
+	{
+		tmp = line;
+		line = ft_strjoin(line, buf);
+		ft_strdel(&tmp);
+	}
+	if (buf)
+		ft_strdel(&buf);
+	if (*line)
+		return (line);
+	if (line)
+		ft_strdel(&line);
+	if (tmp)
+		ft_strdel(&tmp);
+	return (NULL);
+}
 
 char		 **filler_realloc(char **arr, char *str)
 {
@@ -40,7 +67,7 @@ int			filler_get_players(t_filler *filler)
 {
 	char	*buf;
 
-	if (get_next_line(STDIN_FILENO, &buf) < 1)
+	if (!(buf = filler_get_line()))
 		return (0);
 	if (!ft_strstr(buf, "$$$ exec ") && !ft_strdel(&buf))
 		return (0);
