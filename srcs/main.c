@@ -6,13 +6,13 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:48:53 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/25 07:49:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/25 14:29:29 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <filler.h>
+#include "filler.h"
 
-t_filler		*filler_init(void)
+static t_filler	*filler_init(void)
 {
 	t_filler	*filler;
 

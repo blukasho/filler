@@ -6,17 +6,15 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/25 07:49:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/25 14:32:24 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
-
-# include <libft.h>
-# include <ft_printf.h>
+# include "../libft/includes/libft.h"
+# include "../libft/includes/ft_printf.h"
 # include <fcntl.h>
-
 # define FILL_SYMBOL '.'
 # define PIECE_SYMBOL '*'
 
@@ -26,30 +24,22 @@ typedef struct	s_filler
 	char		player_s2;
 	char		hostile_s1;
 	char		hostile_s2;
-
 	char		**map;
 	int			map_x;
 	int			map_y;
-
 	char		**piece;
 	int			piece_x;
 	int			piece_y;
-/*
-** Players last move
-*/
 	int			player_lm_x;
 	int			player_lm_y;
 	int			hostile_lm_x;
 	int			hostile_lm_y;
-
 	int			result_x;
 	int			result_y;
-
 }				t_filler;
 
 int			filler_clear(t_filler *filler);
 int			filler_clear_map_piece(t_filler *filler);
-t_filler	*filler_init(void);
 int			filler_read(t_filler *filler);
 char		*filler_get_line(void);
 char		**filler_realloc(char **arr, char *str);

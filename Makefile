@@ -10,7 +10,7 @@
 #*                                                                            *#
 #* ************************************************************************** *#
 
-SRCS = main.c read.c clear.c map.c piece.c game.c set.c
+SRCS = read.c clear.c map.c piece.c game.c set.c
 
 SRCS_DIR = srcs/
 
@@ -20,22 +20,20 @@ OBJ_DIR = obj/
 
 LIBFT_PATH = libft/
 
-INCLUDES = -Iincludes -Ilibft/includes
-
 LIB_NAME = libft/libft.a
 
-NAME = blukasho.filler
+FILLER = blukasho.filler
 
-FLAGS = -Wall -Wextra -Werror $(INCLUDES)
+FLAGS = -Wall -Wextra -Werror -I includes
 
 DEBUG_FLAGS = -g3 -fsanitize=address
 
 NAME_MAIN = srcs/main.c
 
-all: make_objs_dir make_lib $(NAME)
+all: make_objs_dir make_lib $(FILLER)
 
-$(NAME): $(LIB_NAME) $(NAME_MAIN)
-	gcc $(FLAGS) $(NAME_MAIN) $(LIB_NAME) -o $(NAME)
+$(FILLER): $(LIB_NAME) $(NAME_MAIN)
+	gcc $(FLAGS) $(NAME_MAIN) $(LIB_NAME) -o $(FILLER)
 
 $(LIB_NAME): $(OBJ)
 	ar -rv $(LIB_NAME) $^
@@ -68,7 +66,7 @@ fclean: clean
 	make fclean -C $(LIBFT_PATH)
 	rm -rvf blukasho.filler.dSYM
 	rm -rvf filler.trace
-	rm -rvf $(NAME)
+	rm -rvf $(FILLER)
 
 re: fclean all
 
