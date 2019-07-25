@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/23 15:19:03 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/25 07:49:10 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ typedef struct	s_filler
 	char		**piece;
 	int			piece_x;
 	int			piece_y;
+/*
+** Players last move
+*/
+	int			player_lm_x;
+	int			player_lm_y;
+	int			hostile_lm_x;
+	int			hostile_lm_y;
 
 	int			result_x;
 	int			result_y;
@@ -50,11 +57,17 @@ char		*filler_get_correct_line(char *line);
 int			filler_get_players(t_filler *filler);
 int			filler_get_map_param(t_filler *filler);
 int			filler_get_map(t_filler *filler);
+int			filler_get_last_move_players(t_filler *filler);
+int			filler_get_last_move_hostile(t_filler *filler);
 int			filler_get_piece_param(t_filler *filler);
 int			filler_get_piece(t_filler *filler);
 int			filler_get_result(t_filler *filler);
 int			filler_game(t_filler *filler);
 int			filler_is_player(t_filler *filler, int x, int y);
 int			filler_try_set_piece(t_filler *filler, int x, int y);
+int			filler_set_top_left_corner(t_filler *filler);
+int			filler_set_top_right_corner(t_filler *filler);
+int			filler_set_lower_left_corner(t_filler *filler);
+int			filler_set_lower_right_corner(t_filler *filler);
 
 #endif
