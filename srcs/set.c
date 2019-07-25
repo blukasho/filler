@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 08:21:25 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/25 14:24:30 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/25 17:16:10 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,11 @@ int		filler_set_lower_right_corner(t_filler *filler)
 	int		x;
 	int		y;
 
-	y = filler->map_y;
-	while (--y >= 0)
+	y = filler->map_y - 5;
+	while (y > 0)
 	{
-		x = filler->map_x;
-		while (--x >= 0)
+		x = filler->map_x - 4;
+		while (x > 0)
 		{
 			if (filler_try_set_piece(filler, x, y))
 			{
@@ -124,7 +124,9 @@ int		filler_set_lower_right_corner(t_filler *filler)
 				filler->result_y = y;
 				return (1);
 			}
+			--x;
 		}
+		--y;
 	}
 	return (0);
 }

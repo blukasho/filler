@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 10:58:31 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/25 14:24:30 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/25 17:10:41 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int			filler_is_player(t_filler *filler, int x, int y)
 
 int			filler_get_result(t_filler *filler)
 {
-	if (filler_set_top_left_corner(filler))
-		return (1);
-	if (filler_set_top_right_corner(filler))
-		return (1);
-	if (filler_set_lower_left_corner(filler))
-		return (1);
-	if (filler_set_lower_right_corner(filler))
-		return (1);
+//	if (filler_set_top_left_corner(filler))
+//		return (1);
+//	if (filler_set_top_right_corner(filler))
+//		return (1);
+//	if (filler_set_lower_left_corner(filler))
+//		return (1);
+//	if (filler_set_lower_right_corner(filler))
+//		return (1);
 //	if (filler->hostile_lm_y < filler->player_lm_y &&
 //		filler->hostile_lm_x <= filler->player_lm_x &&
 //		filler_set_top_left_corner(filler))
@@ -44,10 +44,10 @@ int			filler_get_result(t_filler *filler)
 //		filler->hostile_lm_x <= filler->player_lm_x &&
 //		filler_set_lower_left_corner(filler))
 //		return (1);
-//	if (filler->hostile_lm_y > filler->player_lm_y &&
-//		filler->hostile_lm_x >= filler->player_lm_x &&
-//		filler_set_lower_right_corner(filler))
-//		return (1);
+	if (filler->hostile_lm_y > filler->player_lm_y &&
+		filler->hostile_lm_x >= filler->player_lm_x &&
+		filler_set_lower_right_corner(filler))
+		return (1);
 	return (0);
 }
 
