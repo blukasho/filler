@@ -57,14 +57,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 srcs/clear.c
-badd +1 srcs/game.c
+badd +15 srcs/game.c
 badd +20 srcs/main.c
-badd +82 srcs/map.c
+badd +83 srcs/map.c
 badd +49 srcs/piece.c
 badd +29 srcs/read.c
-badd +8 srcs/set.c
+badd +1 srcs/set.c
 badd +1 srcs/debug
-badd +55 includes/filler.h
+badd +58 includes/filler.h
 badd +1 Makefile
 badd +94 ~/Documents/temp/filler/srcs/set_pos.c
 badd +1 ~/Documents/temp/filler/srcs/piece.c
@@ -72,14 +72,14 @@ badd +1 ~/Documents/temp/filler/srcs/main.c
 argglobal
 silent! argdel *
 argadd srcs/clear.c
-argadd srcs/game.c
-argadd srcs/main.c
-argadd srcs/map.c
-argadd srcs/piece.c
-argadd srcs/read.c
 argadd srcs/set.c
+argadd srcs/read.c
+argadd srcs/piece.c
+argadd srcs/map.c
+argadd srcs/main.c
+argadd srcs/game.c
 set stal=2
-edit srcs/game.c
+edit srcs/set.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -195,13 +195,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 15 - ((14 * winheight(0) + 24) / 48)
+let s:l = 27 - ((26 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-15
-normal! 033|
-tabedit srcs/set.c
+27
+normal! 09|
+tabedit srcs/game.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -317,12 +317,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 39 - ((38 * winheight(0) + 24) / 48)
+let s:l = 20 - ((19 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-39
-normal! 013|
+20
+normal! 015|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -440,11 +440,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 29 - ((17 * winheight(0) + 24) / 48)
+let s:l = 100 - ((40 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
+100
 normal! 0
 tabedit includes/filler.h
 set splitbelow splitright
@@ -691,7 +691,7 @@ exe s:l
 normal! zt
 2
 normal! 048|
-tabnext 1
+tabnext 3
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

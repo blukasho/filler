@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 10:58:31 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/26 17:38:28 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/26 18:06:10 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ int			filler_is_player(t_filler *filler, int x, int y)
 
 int			filler_get_result(t_filler *filler)
 {
+	if (filler->hostile_lm_y < filler->player_lm_y &&
+		filler->hostile_lm_x <= filler->player_lm_x &&
+		filler_set_top_left_corner(filler))
+		return (1);
+	if (filler->hostile_lm_y <= filler->player_lm_y &&
+		filler->hostile_lm_x >= filler->player_lm_x &&
+		filler_set_top_right_corner(filler))
+		return (1);
+	if (filler->hostile_lm_y >= filler->player_lm_y &&
+		filler->hostile_lm_x <= filler->player_lm_x &&
+		filler_set_lower_left_corner(filler))
+		return (1);
+	if (filler->hostile_lm_y > filler->player_lm_y &&
+		filler->hostile_lm_x >= filler->player_lm_x &&
+		filler_set_lower_right_corner(filler))
+		return (1);
 //	if (filler_set_top_left_corner(filler))
 //		return (1);
 //	if (filler_set_top_right_corner(filler))
@@ -46,26 +62,6 @@ int			filler_get_result(t_filler *filler)
 //		return (1);
 //	if (filler_set_lower_right_corner(filler))
 //		return (1);
-	if (filler->hostile_lm_y < filler->player_lm_y &&
-		filler->hostile_lm_x <= filler->player_lm_x &&
-		filler_set_top_left_corner(filler))
-		return (1);
-//	ft_printf("game.c:43\n");
-	if (filler->hostile_lm_y - 4 <= filler->player_lm_y &&
-		filler->hostile_lm_x >= filler->player_lm_x &&
-		filler_set_top_right_corner(filler))
-		return (1);
-//	ft_printf("game.c:47\n");
-	if (filler->hostile_lm_y >= filler->player_lm_y &&
-		filler->hostile_lm_x <= filler->player_lm_x &&
-		filler_set_lower_left_corner(filler))
-		return (1);
-//	ft_printf("game.c:51\n");
-	if (filler->hostile_lm_y > filler->player_lm_y &&
-		filler->hostile_lm_x >= filler->player_lm_x &&
-		filler_set_lower_right_corner(filler))
-		return (1);
-//	ft_printf("game.c:55\n");
 	return (0);
 }
 
