@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 08:21:25 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/26 17:23:39 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/26 17:35:52 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int			filler_try_set_piece(t_filler *filler, int start_x, int start_y)
 		x = 0;
 		while (x < filler->piece_x)
 		{
-			if (filler_is_player(filler, start_x + x, start_y + y) == 2)
+			if (filler_is_hostile(filler, start_x + x, start_y + y))
+				return (0);
+			if (filler_check_overflow(filler, start_x + x, start_y + y))
 				return (0);
 			if (filler->piece[y][x] == '*' &&
 				filler_is_player(filler, start_x + x, start_y + y))

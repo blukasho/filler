@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/26 17:24:12 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/26 17:33:10 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int			filler_get_piece(t_filler *filler);
 int			filler_get_result(t_filler *filler);
 int			filler_game(t_filler *filler);
 int			filler_is_player(t_filler *filler, int x, int y);
+int			filler_is_hostile(t_filler *filler, int x, int y);
+int			filler_check_overflow(t_filler *filler, int x, int y);
 int			filler_try_set_piece(t_filler *filler, int x, int y);
 int			filler_set_top_left_corner(t_filler *filler);
 int			filler_set_top_right_corner(t_filler *filler);

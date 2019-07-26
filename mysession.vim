@@ -48,7 +48,6 @@ set tabstop=4
 set ttimeout
 set ttimeoutlen=100
 set wildmenu
-set window=50
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -58,14 +57,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 srcs/clear.c
-badd +43 srcs/game.c
+badd +1 srcs/game.c
 badd +20 srcs/main.c
 badd +82 srcs/map.c
-badd +1 srcs/piece.c
-badd +1 srcs/read.c
-badd +1 srcs/set.c
+badd +49 srcs/piece.c
+badd +29 srcs/read.c
+badd +8 srcs/set.c
 badd +1 srcs/debug
-badd +43 includes/filler.h
+badd +55 includes/filler.h
 badd +1 Makefile
 badd +94 ~/Documents/temp/filler/srcs/set_pos.c
 badd +1 ~/Documents/temp/filler/srcs/piece.c
@@ -73,14 +72,14 @@ badd +1 ~/Documents/temp/filler/srcs/main.c
 argglobal
 silent! argdel *
 argadd srcs/clear.c
-argadd srcs/set.c
-argadd srcs/read.c
-argadd srcs/piece.c
-argadd srcs/map.c
-argadd srcs/main.c
 argadd srcs/game.c
+argadd srcs/main.c
+argadd srcs/map.c
+argadd srcs/piece.c
+argadd srcs/read.c
+argadd srcs/set.c
 set stal=2
-edit srcs/set.c
+edit srcs/game.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -196,13 +195,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 8 - ((5 * winheight(0) + 24) / 48)
+let s:l = 15 - ((14 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 04|
-tabedit srcs/game.c
+15
+normal! 033|
+tabedit srcs/set.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -318,12 +317,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 24) / 48)
+let s:l = 39 - ((38 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 02|
+39
+normal! 013|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -564,12 +563,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 55 - ((37 * winheight(0) + 24) / 48)
+let s:l = 58 - ((40 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-55
-normal! 0
+58
+normal! 066|
 tabedit Makefile
 set splitbelow splitright
 set nosplitbelow
@@ -692,7 +691,7 @@ exe s:l
 normal! zt
 2
 normal! 048|
-tabnext 2
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
