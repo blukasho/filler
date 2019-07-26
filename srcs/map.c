@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 12:12:59 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/25 14:24:30 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/26 13:29:24 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,26 @@ int			filler_get_last_move_players(t_filler *filler)
 	int		x;
 	int		y;
 
-	y = -1;
-	if (!(filler->player_lm_x) && !(filler->player_lm_y))
-		while (++y < filler->map_y)
+	y = 0;
+	while (y < filler->map_y)
+	{
+		x = 0;
+		while (x < filler->map_x)
 		{
-			x = -1;
-			while (++x < filler->map_x)
-				if (filler->map[y][x] == filler->player_s1)
-				{
-					filler->player_lm_y = y;
-					filler->player_lm_x = x;
-				}
-				else if (filler->map[y][x] == filler->hostile_s1)
-				{
-					filler->hostile_lm_y = y;
-					filler->hostile_lm_x = x;
-				}
+			if (filler->map[y][x] == filler->player_s1)
+			{
+				filler->player_lm_y = y;
+				filler->player_lm_x = x;
+			}
+			if (filler->map[y][x] == filler->hostile_s1)
+			{
+				filler->hostile_lm_y = y;
+				filler->hostile_lm_x = x;
+			}
+			++x;
 		}
-	else
-		filler_get_last_move_hostile(filler);
+		++y;
+	}
 	return (1);
 }
 

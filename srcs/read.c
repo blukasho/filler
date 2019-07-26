@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:41:58 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/25 14:24:30 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/26 13:36:50 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,12 @@ int			filler_read(t_filler *filler)
 {
 	if (!filler_get_map_param(filler))
 		return (0);
-	if (!filler_get_map(filler) || !filler_get_last_move_players(filler))
+	if (!filler_get_map(filler))
 		return (0);
+//	if (!(filler->player_lm_x) && !(filler->player_lm_y))
+//		filler_get_last_move_players(filler);
+//	else
+//		filler_get_last_move_hostile(filler);
 	if (!filler_get_piece_param(filler) || !filler_get_piece(filler))
 		return (0);
 	return (1);
