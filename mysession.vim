@@ -57,12 +57,12 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 srcs/clear.c
-badd +15 srcs/game.c
+badd +1 srcs/game.c
 badd +20 srcs/main.c
 badd +83 srcs/map.c
 badd +49 srcs/piece.c
-badd +29 srcs/read.c
-badd +1 srcs/set.c
+badd +100 srcs/read.c
+badd +27 srcs/set.c
 badd +1 srcs/debug
 badd +58 includes/filler.h
 badd +1 Makefile
@@ -72,14 +72,14 @@ badd +1 ~/Documents/temp/filler/srcs/main.c
 argglobal
 silent! argdel *
 argadd srcs/clear.c
-argadd srcs/set.c
-argadd srcs/read.c
-argadd srcs/piece.c
-argadd srcs/map.c
-argadd srcs/main.c
 argadd srcs/game.c
+argadd srcs/main.c
+argadd srcs/map.c
+argadd srcs/piece.c
+argadd srcs/read.c
+argadd srcs/set.c
 set stal=2
-edit srcs/set.c
+edit srcs/game.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -195,13 +195,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 27 - ((26 * winheight(0) + 24) / 48)
+let s:l = 47 - ((6 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-27
-normal! 09|
-tabedit srcs/game.c
+47
+normal! 0
+tabedit srcs/set.c
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -317,12 +317,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 20 - ((19 * winheight(0) + 24) / 48)
+let s:l = 34 - ((27 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-20
-normal! 015|
+34
+normal! 08|
 tabedit srcs/read.c
 set splitbelow splitright
 set nosplitbelow
@@ -440,11 +440,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 100 - ((40 * winheight(0) + 24) / 48)
+let s:l = 19 - ((5 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-100
+19
 normal! 0
 tabedit includes/filler.h
 set splitbelow splitright
@@ -691,7 +691,7 @@ exe s:l
 normal! zt
 2
 normal! 048|
-tabnext 3
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
