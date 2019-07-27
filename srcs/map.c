@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 12:12:59 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/26 13:29:24 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/27 17:26:33 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int			filler_get_last_move_players(t_filler *filler)
 		}
 		++y;
 	}
+	filler_get_last_move_hostile(filler);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 12:28:17 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/26 15:55:04 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/27 17:23:36 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		filler_clear_map_piece(t_filler *filler)
 		filler->piece_x = 0;
 		filler->result_x = 0;
 		filler->result_y = 0;
+		filler->player_lm_y = 0;//debug
+		filler->player_lm_x = 0;//debug
 	}
 	return (0);
 }

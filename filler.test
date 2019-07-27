@@ -1,7 +1,0 @@
-while true;
-	do
-		./resources/filler_vm -p2 ./resources/players/iruban.filler -p1 ./blukasho.filler -f resources/maps/map01; 
-		cat filler.trace | grep "won";
-		sleep 1;
-	done
-#./resources/players/iruban.filler
