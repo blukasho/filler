@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 10:58:31 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/27 17:35:46 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/28 09:09:22 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,10 @@ int			filler_game(t_filler *filler)
 	{
 		if (!filler_read(filler))
 			return (0);
-		filler_get_result(filler);
-		ft_printf("%d %d\n", filler->result_y, filler->result_x);
+		if (!filler_get_result(filler))
+			filler_clear_map_piece(filler);
+		ft_printf("%d %d\n", filler->result_y - filler->piece_delete_y,
+			filler->result_x - filler->piece_delete_x);
 		filler_clear_map_piece(filler);
 	}
 	return (0);

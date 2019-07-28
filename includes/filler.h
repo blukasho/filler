@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 12:43:04 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/26 17:33:10 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/28 08:18:23 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct	s_filler
 	char		**piece;
 	int			piece_x;
 	int			piece_y;
+	int			piece_delete_y;
+	int			piece_delete_x;
 	int			player_lm_x;
 	int			player_lm_y;
 	int			hostile_lm_x;
@@ -51,6 +53,10 @@ int			filler_get_last_move_players(t_filler *filler);
 int			filler_get_last_move_hostile(t_filler *filler);
 int			filler_get_piece_param(t_filler *filler);
 int			filler_get_piece(t_filler *filler);
+int			filler_get_minimal_piece(t_filler *filler);
+int			filler_get_minimal_piece_y(t_filler *filler);
+int			filler_get_minimal_piece_x(t_filler *filler);
+int			filler_check_empty_column(char **piece, int x);//debug
 int			filler_get_result(t_filler *filler);
 int			filler_game(t_filler *filler);
 int			filler_is_player(t_filler *filler, int x, int y);
