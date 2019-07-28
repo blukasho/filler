@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 08:21:25 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/27 08:26:55 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/28 18:52:01 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@ int			filler_try_set_piece(t_filler *filler, int start_x, int start_y)
 	int		star;
 
 	star = 0;
-	y = 0;
-	while (y < filler->piece_y)
+	y = -1;
+	while (++y < filler->piece_y)
 	{
-		x = 0;
-		while (x < filler->piece_x)
-		{
-			if (start_y + y > filler->map_y - 1)
+		if (start_y + y > filler->map_y - 1)
+			return (0);
+		x = -1;
+		while (++x < filler->piece_x)
+			if (filler->piece[y][x] == '*' && start_x + x > filler->map_x)
 				return (0);
-			if (filler->piece[y][x] == '*' &&
-				start_x + x > filler->map_x)
-				return (0);
-			if (start_x + x < filler->map_x)
+			else if (start_x + x < filler->map_x)
 			{
 				if (filler->piece[y][x] == '*' &&
 					filler_is_hostile(filler, start_x + x, start_y + y))
@@ -39,9 +37,6 @@ int			filler_try_set_piece(t_filler *filler, int start_x, int start_y)
 					filler_is_player(filler, start_x + x, start_y + y))
 					++star;
 			}
-			++x;
-		}
-		++y;
 	}
 	return ((star == 1 ? 1 : 0));
 }

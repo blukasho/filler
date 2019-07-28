@@ -6,21 +6,11 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 10:58:31 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/28 09:09:22 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/28 18:52:06 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-int			filler_check_overflow(t_filler *filler, int x, int y)
-{
-	if (!filler->map[y] || !filler->map[y][x])
-		return (1);
-//	if (y - 1 > filler->map_y ||
-//		x + filler->piece_x - 1 > filler->map_x)
-//		return (1);
-	return (0);
-}
 
 int			filler_is_hostile(t_filler *filler, int x, int y)
 {
@@ -60,19 +50,6 @@ int			filler_get_result(t_filler *filler)
 		filler->hostile_lm_x >= filler->player_lm_x &&
 		filler_set_lower_right_corner(filler))
 		return (1);
-//	ft_printf("->57\n");
-//	if (filler_set_top_left_corner(filler))
-//		return (1);
-//	ft_printf("->59\n");
-//	if (filler_set_top_right_corner(filler))
-//		return (1);
-//	ft_printf("->62\n");
-//	if (filler_set_lower_left_corner(filler))
-//		return (1);
-//	ft_printf("->65\n");
-//	if (filler_set_lower_right_corner(filler))
-//		return (1);
-//	ft_printf("->68\n");
 	return (0);
 }
 

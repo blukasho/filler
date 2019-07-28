@@ -6,7 +6,7 @@
 /*   By: blukasho <bodik1w@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:30:12 by blukasho          #+#    #+#             */
-/*   Updated: 2019/07/28 09:09:01 by blukasho         ###   ########.fr       */
+/*   Updated: 2019/07/28 18:04:24 by blukasho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ int			filler_get_piece(t_filler *filler)
 	char	*buf;
 
 	piece_y = 0;
-	if (!(filler->piece = (char **)malloc((filler->piece_y + 1) *
-		sizeof(char *))))
+	if (!(filler->piece = (char **)malloc((filler->piece_y + 1) * sizeof(char *))))
 		return (0);
 	while (piece_y < filler->piece_y && (buf = filler_get_line()))
 		(filler->piece)[piece_y++] = buf;
